@@ -5,8 +5,11 @@ import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import './index.css';
 import App from './App.tsx';
 
+
 // TODO: Configure QueryClient with appropriate default options
 // Reference: https://tanstack.com/query/latest/docs/framework/react/reference/QueryClient
+// queryKey itu identitas cache.
+// queryFn itu fungsi untuk mengambil data.
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
@@ -20,8 +23,31 @@ createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <QueryClientProvider client={queryClient}>
       <App />
+      
       {/* React Query Devtools - useful for debugging */}
       <ReactQueryDevtools initialIsOpen={false} />
     </QueryClientProvider>
   </StrictMode>
 );
+
+/* dari chatgpt:
+import App from "./App";
+
+import {
+  QueryClient,
+  QueryClientProvider,
+} from "@tanstack/react-query";
+
+const queryClient = new QueryClient();
+
+createRoot(document.getElementById("root")!).render(
+  <StrictMode>
+    <QueryClientProvider client={queryClient}>
+      <App />
+    </QueryClientProvider>
+  </StrictMode>
+);
+
+
+
+*/

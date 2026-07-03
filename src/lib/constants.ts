@@ -39,3 +39,5 @@ export const QUERY_KEYS = {
     search: (query: string, page: number) => ['movies', 'search', query, page] as const,
   },
 } as const;
+
+// constants.ts → menyimpan nilai yang tidak berubah, seperti ukuran gambar, query key, atau storage key.
